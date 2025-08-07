@@ -28,7 +28,12 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-medical-soft via-background to-medical-light">
+    <div
+      className="min-h-screen"
+      style={{
+        background: "linear-gradient(to bottom, #2a4fcf 0%, #7b3fa1 60%, #c12b6e 100%)"
+      }}
+    >
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -37,8 +42,8 @@ const HomePage = () => {
               <Heart className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-foreground">MediCare Portal</h1>
-              <p className="text-xs text-muted-foreground">Advanced Healthcare Solutions</p>
+                <h1 className="text-xl font-bold" style={{ color: "#2a4fcf" }}>Veydha</h1>
+                <p className="text-sm" style={{ color: "black" }}>AI-Powered Symptom Intake Assistant</p>
             </div>
           </div>
           <Link to="/login">
@@ -55,12 +60,12 @@ const HomePage = () => {
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Your Health,
-              <span className="text-medical-blue"> Our Priority</span>
+              Engage Your Wait With
+              <span className="text-medical-blue"> VEYDHA</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Welcome to MediCare Portal - a comprehensive healthcare platform providing 
-              secure patient management, AI-powered symptom analysis, and 24/7 medical support.
+             Veydha is a smart pre-consultation platform that collects and analyzes patient symptoms using AI,
+              ensuring doctors get meaningful insights — before the visit even starts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/login">
@@ -100,7 +105,7 @@ const HomePage = () => {
       </section>
 
       {/* Hospital Info */}
-      <section className="py-16 px-4 bg-white/40 backdrop-blur-sm">
+      <section className="py-16 px-4">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
