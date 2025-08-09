@@ -28,33 +28,42 @@ const LoginPage = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // Simulate login process
-    setTimeout(() => {
-      if (formData.patientName && formData.patientId && formData.password) {
-        // Store patient data for dashboard
-        localStorage.setItem('currentPatient', JSON.stringify({
-          name: formData.patientName,
-          id: formData.patientId,
-          age: 32,
-          gender: "Male",
-          lastVisit: "2024-01-15"
-        }));
-        
-        toast({
-          title: "Login Successful",
-          description: `Welcome back, ${formData.patientName}!`,
-        });
-        
-        navigate("/dashboard");
-      } else {
-        toast({
-          title: "Login Failed",
-          description: "Please fill in all required fields.",
-          variant: "destructive",
-        });
+    // This part replaces the setTimeout
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          patientId: formData.patientId,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed.');
       }
+
+      // SUCCESS: Store the real token from the backend
+      localStorage.setItem('token', data.token);
+
+      toast({
+        title: "Login Successful",
+        description: `Welcome back!`,
+      });
+
+      navigate("/dashboard");
+
+    } catch (err: any) {
+      toast({
+        title: "Login Failed",
+        description: err.message,
+        variant: "destructive",
+      });
+    } finally {
       setIsLoading(false);
-    }, 1500);
+    }
   };
 
   return (
