@@ -1,10 +1,15 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs'); 
 const consultationSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now,
         required: true,
+    },
+    doctor: {
+        type: String,
+        required: [true, 'Doctor name is required.'],
+        trim: true,
     },
     diagnosis: {
         type: String,
@@ -12,10 +17,12 @@ const consultationSchema = new mongoose.Schema({
         trim: true,
     },
     medications: {
-        type: [String], // Defines an array of strings
+        type: [String],
         required: true,
     }
 });
+
+// MAIN PATIENT SCHEMA
 const patientSchema = new mongoose.Schema({
     patientId: {
         type: String,
@@ -31,33 +38,31 @@ const patientSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Password is required.'],
-        select: false, // Prevents password from being sent to the api 
+        select: false,
     },
     age: {
         type: Number,
+        required: [true, 'Age is required.']
     },
     gender: {
         type: String,
         enum: ['Male', 'Female', 'Other'],
+        required: [true, 'Gender is required.']
     },
-    lastVisitDate: {
-        type: Date,
-    },
-    consultationHistory: [consultationSchema] 
+    consultationHistory: [consultationSchema]
+}, {
+    timestamps: true
 });
 
-patientSchema.pre('save', async function(next) {
-    if (!this.isModified('password')) return next();
-    this.password = await bcrypt.hash(this.password, 12);
-    next();
-});
-
-patientSchema.methods.correctPassword = async function(
-    candidatePassword,
-    userPassword
-) {
+// compare password with hashed pass
+patientSchema.methods.correctPassword = async function(candidatePassword, userPassword) {
     return await bcrypt.compare(candidatePassword, userPassword);
 };
+
+// last date 
+patientSchema.virtual('lastVisitDate').get(function() {
+    return this.updatedAt;
+});
 
 const Patient = mongoose.model('Patient', patientSchema);
 
