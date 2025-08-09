@@ -1,6 +1,5 @@
 const Patient = require('../models/patientModel');
 
-// get profile logic 
 const getMyProfile = async (req, res) => {
     try {
         const patient = await Patient.findById(req.user.id);
@@ -8,6 +7,7 @@ const getMyProfile = async (req, res) => {
         if (!patient) {
             return res.status(404).json({ message: 'Patient not found' });
         }
+        console.log('Patient data on server:', patient);
         res.status(200).json(patient);
 
     } catch (error) {
