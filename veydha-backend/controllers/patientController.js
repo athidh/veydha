@@ -1,18 +1,20 @@
-const asyncHandler = require('express-async-handler');
 const Patient = require('../models/patientModel');
 
+// get profile logic 
+const getMyProfile = async (req, res) => {
+    try {
+        const patient = await Patient.findById(req.user.id);
 
-const getMyProfile = asyncHandler(async (req, res) => {
-  const patient = req.patient;
+        if (!patient) {
+            return res.status(404).json({ message: 'Patient not found' });
+        }
+        res.status(200).json(patient);
 
-  if (patient) {
-    res.status(200).json(patient);
-  } else {
-    res.status(404);
-    throw new Error('Patient not found');
-  }
-});
+    } catch (error) {
+        res.status(500).json({ message: `Server Error: ${error.message}` });
+    }
+};
 
 module.exports = {
-  getMyProfile,
+    getMyProfile,
 };
