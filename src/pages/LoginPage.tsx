@@ -30,7 +30,8 @@ const LoginPage = () => {
 
     // This part replaces the setTimeout
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -70,7 +71,7 @@ const LoginPage = () => {
     <div
       className="min-h-screen flex items-center justify-center px-4"
       style={{
-      backgroundImage: `url('c:/Users/karthiga/OneDrive/Pictures/Screenshots/Screenshot 2025-08-07 152523.png')`,
+      backgroundImage: `url('/loginpagebackground.png')`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       }}
