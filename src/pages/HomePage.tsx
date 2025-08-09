@@ -112,11 +112,11 @@ const HomePage = () => {
               <h3 className="text-3xl font-bold text-foreground mb-6">
                 About MediCare Medical Center
               </h3>
-              <p className="text-muted-foreground text-lg mb-6">
+                <p className="text-lg mb-6" style={{ color: "#09090a4c" }}>
                 Established in 1985, MediCare Medical Center has been at the forefront of 
                 healthcare innovation, serving over 100,000 patients with cutting-edge 
                 medical technology and compassionate care.
-              </p>
+                </p>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-medical-blue" />
