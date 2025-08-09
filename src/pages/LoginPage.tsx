@@ -49,6 +49,23 @@ const LoginPage = () => {
       // SUCCESS: Store the real token from the backend
       localStorage.setItem('token', data.token);
 
+      // Also store minimal patient info so Dashboard can load without bouncing back
+      const patient =
+        data.patient ||
+        data.user ||
+        {
+          name: formData.patientName,
+          id: formData.patientId,
+          age: 0,
+          gender: "N/A",
+          lastVisit: new Date().toISOString(),
+        };
+      try {
+        localStorage.setItem('currentPatient', JSON.stringify(patient));
+      } catch {
+        // ignore storage errors
+      }
+
       toast({
         title: "Login Successful",
         description: `Welcome back!`,
