@@ -1,0 +1,157 @@
+[
+  {
+    "patientId": "P001",
+    "name": "athidh",
+    "password": "password123",
+    "age": 18,
+    "gender": "Male",
+    "consultationHistory": [
+      {
+        "date": "2025-07-15T10:00:00Z",
+        "doctor": "Dr. Emily Carter",
+        "diagnosis": "Seasonal Flu",
+        "medications": ["Oseltamivir", "Ibuprofen", "Rest"]
+      },
+      {
+        "date": "2024-11-22T14:30:00Z",
+        "doctor": "Dr. Ben Jacobs",
+        "diagnosis": "Minor Laceration",
+        "medications": ["Antiseptic Wipe", "Bandage"]
+      }
+    ]
+  },
+  {
+    "patientId": "P002",
+    "name": "Jane Doe",
+    "password": "password456",
+    "age": 34,
+    "gender": "Female",
+    "consultationHistory": [
+      {
+        "date": "2025-06-20T11:00:00Z",
+        "doctor": "Dr. Ben Jacobs",
+        "diagnosis": "Chronic Migraine",
+        "medications": ["Sumatriptan", "Propranolol"]
+      }
+    ]
+  },
+  {
+    "patientId": "P003",
+    "name": "John Smith",
+    "password": "password789",
+    "age": 45,
+    "gender": "Male",
+    "consultationHistory": [
+      {
+        "date": "2025-08-01T16:00:00Z",
+        "doctor": "Dr. Emily Carter",
+        "diagnosis": "Hypertension Management",
+        "medications": ["Lisinopril", "Amlodipine"]
+      },
+      {
+        "date": "2025-01-25T09:00:00Z",
+        "doctor": "Dr. Emily Carter",
+        "diagnosis": "Annual Physical Exam",
+        "medications": ["Multivitamin", "Vitamin D Supplement"]
+      }
+    ]
+  },
+  {
+    "patientId": "P004",
+    "name": "Alice Johnson",
+    "password": "passwordabc",
+    "age": 29,
+    "gender": "Female",
+    "consultationHistory": [
+      {
+        "date": "2025-05-12T13:45:00Z",
+        "doctor": "Dr. Sarah Lee",
+        "diagnosis": "Iron Deficiency Anemia",
+        "medications": ["Ferrous Sulfate", "Vitamin C"]
+      }
+    ]
+  },
+  {
+    "patientId": "P005",
+    "name": "Michael Brown",
+    "password": "passworddef",
+    "age": 52,
+    "gender": "Male",
+    "consultationHistory": [
+      {
+        "date": "2025-07-22T08:15:00Z",
+        "doctor": "Dr. Ben Jacobs",
+        "diagnosis": "Type 2 Diabetes Follow-up",
+        "medications": ["Metformin", "Glipizide", "Dietary Plan"]
+      }
+    ]
+  },
+  {
+    "patientId": "P006",
+    "name": "Emily Davis",
+    "password": "passwordghi",
+    "age": 25,
+    "gender": "Female",
+    "consultationHistory": []
+  },
+  {
+    "patientId": "P007",
+    "name": "David Wilson",
+    "password": "passwordjkl",
+    "age": 61,
+    "gender": "Male",
+    "consultationHistory": [
+      {
+        "date": "2025-03-03T15:00:00Z",
+        "doctor": "Dr. Emily Carter",
+        "diagnosis": "High Cholesterol Check",
+        "medications": ["Atorvastatin", "Aspirin 81mg"]
+      }
+    ]
+  },
+  {
+    "patientId": "P008",
+    "name": "Sophia Martinez",
+    "password": "passwordmno",
+    "age": 38,
+    "gender": "Female",
+    "consultationHistory": [
+      {
+        "date": "2025-06-05T12:00:00Z",
+        "doctor": "Dr. Sarah Lee",
+        "diagnosis": "Sciatica",
+        "medications": ["Physical Therapy Referral", "Naproxen"]
+      }
+    ]
+  },
+  {
+    "patientId": "P009",
+    "name": "James Taylor",
+    "password": "passwordpqr",
+    "age": 41,
+    "gender": "Male",
+    "consultationHistory": [
+      {
+        "date": "2025-07-30T11:20:00Z",
+        "doctor": "Dr. Ben Jacobs",
+        "diagnosis": "Acid Reflux (GERD)",
+        "medications": ["Omeprazole", "Antacids"]
+      }
+    ]
+  },
+  {
+    "patientId": "P010",
+    "name": "Olivia Anderson",
+    "password": "passwordstu",
+    "age": 31,
+    "gender": "Female",
+    "consultationHistory": [
+      {
+        "date": "2025-08-05T09:45:00Z",
+        "doctor": "Dr. Emily Carter",
+        "diagnosis": "Acute Sinusitis",
+        "medications": ["Amoxicillin-clavulanate", "Saline Nasal Spray"]
+      }
+    ]
+  }
+]
