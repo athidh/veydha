@@ -11,8 +11,11 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
-  'http://localhost:8080', 
+  'http://localhost:8080',
 ];
+
+// This new line handles the browser's pre-flight request for CORS
+app.options('*', cors());
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -26,6 +29,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
+
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -34,6 +38,5 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/patients', patientRoutes);
-
 
 module.exports = app;
