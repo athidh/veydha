@@ -88,25 +88,22 @@ const LoginPage = () => {
     <div
       className="min-h-screen flex items-center justify-center px-4"
       style={{
-      backgroundImage: `url('/loginpagebackground.png')`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+        background: "linear-gradient(to bottom, #2a4fcf 0%, #7b3fa1 60%, #c12b6e 100%)"
       }}
     >
       <div className="w-full max-w-md">
       {/* Header */}
       <div className="text-center mb-8">
-        <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-4">
-        <ArrowLeft className="w-4 h-4 mr-2" />
-        Back to Home
+        <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-4" style={{ color: '#FFFACD' }}>
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Home
         </Link>
         <div className="flex items-center justify-center space-x-3 mb-4">
         <div className="w-12 h-12 bg-gradient-medical rounded-lg flex items-center justify-center">
           <Heart className="w-7 h-7 text-white" />
         </div>
         <div className="text-left">
-          <h1 className="text-2xl font-bold text-foreground">MediCare Portal</h1>
-          <p className="text-sm text-muted-foreground">Patient Login</p>
+          <h1 className="text-2xl font-bold text-foreground">Patient Login Portal</h1>
         </div>
         </div>
       </div>
@@ -161,14 +158,16 @@ const LoginPage = () => {
           />
           </div>
 
-          <Button 
-          type="submit" 
-          className="w-full h-12 text-lg font-medium"
-          variant="medical"
-          disabled={isLoading}
-          >
-          {isLoading ? "Signing In..." : "Sign In"}
-          </Button>
+          <div className="flex justify-center">
+            <Button 
+              type="submit" 
+              className="w-24 h-10 text-sm font-medium"
+              variant="medical"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing In..." : "Sign In"}
+            </Button>
+          </div>
         </form>
 
         <div className="mt-6 pt-6 border-t border-border/50 text-center">
@@ -183,7 +182,7 @@ const LoginPage = () => {
       </Card>
 
       <div className="mt-6 text-center text-xs text-muted-foreground">
-        <p>© 2024 MediCare Medical Center. All rights reserved.</p>
+        <p>© 2024 Veydha Medical Center. All rights reserved.</p>
       </div>
       </div>
     </div>

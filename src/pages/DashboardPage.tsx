@@ -82,7 +82,12 @@ const DashboardPage = () => {
   if (isLoading || !patientData) {
     // ... loading state JSX remains the same
     return (
-        <div className="min-h-screen bg-gradient-to-br from-medical-soft via-background to-medical-light flex items-center justify-center">
+        <div
+            className="min-h-screen flex items-center justify-center"
+            style={{
+                background: "linear-gradient(180deg, #355ae0 0%, #4b47b7 100%)",
+            }}
+        >
             <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-medical rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">
                     <Heart className="w-8 h-8 text-white" />
@@ -94,7 +99,12 @@ const DashboardPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-medical-soft via-background to-medical-light">
+    <div
+        className="min-h-screen"
+        style={{
+            background: "linear-gradient(180deg, #355ae0 0%, #4b47b7 100%)",
+        }}
+    >
       {/* Top Navigation remains the same */}
       <header className="bg-white/80 backdrop-blur-sm border-b border-border/50 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
