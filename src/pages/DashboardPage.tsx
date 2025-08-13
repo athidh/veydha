@@ -6,9 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, LogOut, User, Calendar, FileText, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import JotformEmbed from './JotformEmbed'; // 1. Import the Jotform component
+import JotFormEmbed from './JotFormEmbed.jsx';
 
-// Interfaces match your Mongoose schema
 interface Consultation {
   _id: string;
   date: string;
@@ -209,7 +208,6 @@ const DashboardPage = () => {
             </Card>
           </TabsContent>
 
-          {/* 2. Place the JotformEmbed component inside the "chatbot" tab content */}
           <TabsContent value="chatbot">
             <Card className="bg-white/80 backdrop-blur-sm border-border/50">
                 <CardHeader>
@@ -219,7 +217,7 @@ const DashboardPage = () => {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <JotformEmbed />
+                    <JotFormEmbed />
                 </CardContent>
             </Card>
           </TabsContent>
