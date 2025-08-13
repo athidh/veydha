@@ -6,9 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, LogOut, User, Calendar, FileText, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useToast } from "@/hooks/use-toast";
-import ChatBot from "@/components/ChatBot";
+import JotFormEmbed from './JotFormEmbed.jsx';
 
-// Interfaces match your Mongoose schema
 interface Consultation {
   _id: string;
   date: string;
@@ -80,7 +79,6 @@ const DashboardPage = () => {
   };
 
   if (isLoading || !patientData) {
-    // ... loading state JSX remains the same
     return (
         <div
             className="min-h-screen flex items-center justify-center"
@@ -129,7 +127,6 @@ const DashboardPage = () => {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="container mx-auto px-4 py-8">
         <Tabs defaultValue="personal" className="space-y-6">
           <TabsList className="grid w-full grid-cols-2 lg:w-96 mx-auto bg-white/60 backdrop-blur-sm">
@@ -144,7 +141,6 @@ const DashboardPage = () => {
           </TabsList>
 
           <TabsContent value="personal" className="space-y-6">
-            {/* Personal Info Card remains the same */}
             <Card className="bg-white/80 backdrop-blur-sm border-border/50">
                 <CardHeader>
                     <CardTitle className="flex items-center space-x-2">
@@ -176,7 +172,6 @@ const DashboardPage = () => {
                 </CardContent>
             </Card>
 
-            {/* Consultation History with corrected rendering */}
             <Card className="bg-white/80 backdrop-blur-sm border-border/50">
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
@@ -188,7 +183,6 @@ const DashboardPage = () => {
                 <div className="space-y-4">
                   {patientData.consultationHistory.length > 0 ? (
                     patientData.consultationHistory.map((consultation) => (
-                      // --- THIS IS THE CORRECTED PART ---
                       <div key={consultation._id} className="p-4 bg-medical-light/50 rounded-lg border border-border/30">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                           <div className="flex items-center space-x-2 mb-2 md:mb-0">
@@ -216,7 +210,6 @@ const DashboardPage = () => {
                           </div>
                         </div>
                       </div>
-                      // ------------------------------------
                     ))
                   ) : (
                     <p className="text-muted-foreground text-center py-4">No consultation history found.</p>
@@ -227,7 +220,17 @@ const DashboardPage = () => {
           </TabsContent>
 
           <TabsContent value="chatbot">
-            <ChatBot />
+            <Card className="bg-white/80 backdrop-blur-sm border-border/50">
+                <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                        <MessageCircle className="w-5 h-5 text-medical-blue" />
+                        <span>Symptom Chatbot</span>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <JotFormEmbed />
+                </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </main>
